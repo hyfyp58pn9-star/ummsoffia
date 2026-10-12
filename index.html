@@ -1,0 +1,642 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Фатима · umm.soffia</title>
+<meta name="description" content="Фатима — дизайнер и AI-креатор. Оформление блогов, брендинг, сайты, картинки с помощью нейросетей и обучение для женщин.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Great+Vibes&family=Marck+Script&display=swap">
+<style>
+/* Layout: Fatima's notebook on pink-and-cream stripes — spiral-bound cover, taped photos, sticky notes on a thread, chocolate pages; one column on phones, two on wide screens */
+:root{
+  color-scheme:light;
+  --cream:#F6F0E6;
+  --paper:#FFFBF5;
+  --pink:#E8C6CE;
+  --pink-soft:#F3DDE2;
+  --choco:#2B1914;
+  --cocoa:#7A5548;
+  --ink:#2B1914;
+  --ink-soft:#6B5048;
+  --line:rgba(43,25,20,.16);
+  --tape:rgba(232,198,206,.82);
+  --f-head:"Jost","Futura","Century Gothic",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-body:"Jost","Futura","Century Gothic",-apple-system,"Segoe UI",Arial,sans-serif;
+  --f-script:"Great Vibes","Marck Script","Segoe Script",cursive;
+  --shadow:0 2px 0 rgba(43,25,20,.04),0 22px 40px -24px rgba(43,25,20,.45);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--cream)}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{max-width:100%;display:block}
+main > section{overflow-x:clip}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--cocoa);outline-offset:3px;border-radius:6px}
+p{margin:0}
+h1,h2,h3{margin:0;font-weight:500;line-height:1}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:16px}
+.title{font-family:var(--f-script);font-weight:400;font-size:clamp(3.6rem,13vw,6.4rem);line-height:.9;text-align:center}
+.subtitle{font:500 .78rem var(--f-body);text-transform:uppercase;letter-spacing:.24em;text-align:center;margin-top:8px;color:var(--ink-soft)}
+.hd{font-family:var(--f-head);font-weight:500;letter-spacing:.01em}
+.accent{font-family:var(--f-script);font-size:1.5em;line-height:.8;color:var(--cocoa);font-weight:400}
+.stripes{background:repeating-linear-gradient(90deg,var(--cream) 0 30px,var(--pink) 30px 60px)}
+.stripes-dark{background:var(--choco) url("stripes-choco.webp") repeat;background-size:auto 520px}
+
+/* tape (washi) */
+.tape{position:absolute;width:110px;height:30px;background:var(--tape);background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.25) 0 6px,transparent 6px 12px);clip-path:polygon(3% 0,97% 4%,100% 22%,96% 40%,100% 60%,97% 100%,2% 96%,0 75%,4% 50%,0 25%);box-shadow:0 1px 2px rgba(43,25,20,.15);z-index:3}
+.tape.cream{background-color:rgba(240,230,214,.9)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 30px;border-radius:999px;font:500 1rem var(--f-body);letter-spacing:.02em;text-decoration:none;border:1.5px solid var(--choco);transition:transform .25s ease,box-shadow .25s ease;cursor:pointer;text-align:center}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 20px -12px rgba(43,25,20,.6)}
+.btn-pink{background:var(--pink-soft);color:var(--choco)}
+.btn-choco{background:var(--choco);color:var(--cream)}
+.btn-cream{background:var(--cream);color:var(--choco);border-color:var(--cream)}
+.btns{display:grid;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:7px 15px 7px 9px;border-radius:999px;background:var(--paper);border:1.5px solid var(--choco);font:500 .82rem var(--f-body);white-space:nowrap}
+.pill::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--choco);flex:none}
+.pill.dark{background:var(--choco);color:var(--cream)}
+.pill.dark::before{background:var(--cream)}
+.deco{position:absolute;pointer-events:none;user-select:none}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;padding:10px 12px}
+.top-in{max-width:1080px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 20px;border-radius:999px;background:rgba(255,251,245,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line)}
+.logo{font-family:var(--f-script);font-size:1.8rem;text-decoration:none;line-height:1;padding-top:4px}
+.menu{display:flex;align-items:center;gap:6px}
+.menu nav{display:flex;gap:2px}
+.menu nav a{font:400 .92rem var(--f-body);text-decoration:none;padding:8px 10px;border-radius:999px;color:var(--ink-soft)}
+.menu nav a:hover{background:var(--pink-soft);color:var(--ink)}
+.top .btn{min-height:42px;padding:0 20px;font-size:.92rem}
+details.mnav{display:none;position:static}
+details.mnav summary{position:relative;z-index:2;list-style:none;cursor:pointer;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--choco);display:grid;place-items:center;background:var(--paper)}
+details.mnav summary::-webkit-details-marker{display:none}
+details.mnav summary span,details.mnav summary span::before,details.mnav summary span::after{display:block;width:16px;height:1.5px;background:var(--choco);transition:transform .3s ease,opacity .3s ease}
+details.mnav summary span{position:relative}
+details.mnav summary span::before,details.mnav summary span::after{content:"";position:absolute;left:0}
+details.mnav summary span::before{top:-5px}details.mnav summary span::after{top:5px}
+details.mnav[open] summary span{background:transparent}
+details.mnav[open] summary span::before{transform:translateY(5px) rotate(45deg)}
+details.mnav[open] summary span::after{transform:translateY(-5px) rotate(-45deg)}
+.mnav-list{position:fixed;inset:0;z-index:-1;padding:calc(env(safe-area-inset-top,0px) + 96px) 28px calc(env(safe-area-inset-bottom,0px) + 28px);background:var(--choco) url("stripes-choco.webp") repeat;background-size:auto 520px;display:flex;flex-direction:column;gap:2px;overflow-y:auto;animation:menuIn .45s cubic-bezier(.2,.7,.2,1) both}
+.mnav-list{gap:10px!important}
+.mnav-list a.mi{display:flex;align-items:center;gap:14px;text-decoration:none;color:var(--choco);background:var(--cream);border-radius:999px;padding:12px 22px 12px 14px;box-shadow:0 10px 18px -12px rgba(0,0,0,.6);transition:background .25s ease,transform .25s ease}
+.mnav-list a.mi:nth-child(even){background:var(--pink-soft)}
+.mnav-list a.mi::after{content:"→";margin-left:auto;font:400 1.1rem var(--f-body);color:var(--cocoa)}
+.mnav-list a.mi:active{transform:scale(.98)}
+.mnav-list a.mi small{display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--choco);color:var(--cream);font:500 .8rem var(--f-body);flex:none}
+.mnav-list a.mi span{font:500 1.08rem var(--f-body);letter-spacing:.02em}
+.mnav-list a.mi:hover{background:var(--pink)}
+.mnav-list a.mi{animation:itemIn .5s cubic-bezier(.2,.7,.2,1) both}
+.mnav-list a.mi:nth-child(2){animation-delay:.04s}.mnav-list a.mi:nth-child(3){animation-delay:.08s}.mnav-list a.mi:nth-child(4){animation-delay:.12s}.mnav-list a.mi:nth-child(5){animation-delay:.16s}.mnav-list a.mi:nth-child(6){animation-delay:.2s}.mnav-list a.mi:nth-child(7){animation-delay:.24s}.mnav-list a.mi:nth-child(8){animation-delay:.28s}
+.mnav-foot{margin-top:auto;padding-top:26px;display:grid;gap:12px}
+.mnav-foot .btn{width:100%}
+.mnav-foot p{font:400 .85rem var(--f-body);color:rgba(246,240,230,.6);text-align:center}
+.top-in:has(details.mnav[open]){backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--paper)}
+@keyframes menuIn{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:none}}
+@keyframes itemIn{from{opacity:0;transform:translateX(-14px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.menu nav{display:none}details.mnav{display:block}}
+
+/* ---------- cover: spiral notebook ---------- */
+.cover{padding-block:26px 70px}
+.book{position:relative;max-width:980px;margin:0 auto;background:var(--paper);border-radius:8px 8px 26px 26px;box-shadow:var(--shadow);padding:66px 22px 40px;border:1px solid var(--line)}
+/* spiral: punched holes + metal coils drawn as a repeating tile */
+.spiral{position:absolute;left:18px;right:18px;top:-20px;height:46px;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='46' viewBox='0 0 26 46'%3E%3Cdefs%3E%3ClinearGradient id='m' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%236f6560'/%3E%3Cstop offset='.45' stop-color='%23f4efeb'/%3E%3Cstop offset='1' stop-color='%238a807a'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cellipse cx='13' cy='35' rx='4.2' ry='4.6' fill='%232B1914' opacity='.85'/%3E%3Cpath d='M9.5 35 C 8 22, 9 8, 13 4 C 17 8, 18 22, 16.5 35' fill='none' stroke='url(%23m)' stroke-width='3.2' stroke-linecap='round'/%3E%3C/svg%3E") repeat-x left top/26px 46px}
+.cover-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:44px;align-items:center}
+.frame-wrap{position:relative;max-width:360px;width:100%;margin:0 auto 26px}
+.frame{position:relative;border-radius:200px 200px 18px 18px;overflow:hidden;aspect-ratio:464/760;background:var(--pink-soft);border:1.5px solid var(--choco)}
+.frame video{width:100%;height:100%;object-fit:cover}
+.frame-tags{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;width:max-content;max-width:110%}
+.frame-tags .pill{box-shadow:0 8px 18px -10px rgba(43,25,20,.55)}
+.cover .d-ran{-webkit-mask-image:linear-gradient(to bottom,#000 62%,transparent 92%);mask-image:linear-gradient(to bottom,#000 62%,transparent 92%);width:120px;bottom:-6px;left:-48px;transform:rotate(-14deg)}
+.cover .d-heart{width:54px;top:26%;right:-30px;transform:rotate(12deg)}
+.cover-text{display:grid;gap:18px;text-align:center;justify-items:center;min-width:0}
+.cover-name{font-family:var(--f-script);font-weight:400;font-size:clamp(5.2rem,17vw,8.8rem);line-height:.9;color:var(--choco)}
+.role{font:400 1.05rem var(--f-body);color:var(--ink-soft);letter-spacing:.04em}
+.role b{color:var(--ink);font-weight:500}
+.lead{font-size:1.08rem;max-width:30em;color:var(--ink-soft)}
+.cover .btns{width:100%;max-width:340px}
+@media (max-width:820px){
+  .cover-grid{grid-template-columns:1fr;gap:34px}
+  .book{padding:60px 16px 32px}
+  .frame-wrap{max-width:290px}
+  .cover .d-ran{width:92px;left:-26px}
+  .cover .d-heart{right:-12px}
+}
+
+/* ---------- about: magazine spread ---------- */
+.about{padding-block:76px}
+.spread{position:relative;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:0;align-items:stretch}
+.spread-photo{position:relative;padding:26px}
+.spread-photo .pic{position:relative;transform:rotate(-2.5deg);box-shadow:var(--shadow)}
+.spread-photo .pic img.main{width:100%;aspect-ratio:2/3;object-fit:cover;border-radius:4px}
+.tape-img{position:absolute;width:130px;z-index:3;filter:drop-shadow(0 2px 2px rgba(43,25,20,.25))}
+.spread-photo .a-flower{width:104px;right:-6px;top:42%;transform:rotate(14deg);z-index:4;filter:drop-shadow(0 10px 12px rgba(43,25,20,.3))}
+.spread-photo .t1{top:-12px;left:18px;transform:rotate(-8deg)}
+.spread-photo .t2{bottom:-12px;right:14px;transform:rotate(-6deg)}
+.spread-photo .a-heart{width:74px;right:0;top:44%;transform:rotate(14deg);z-index:4}
+.spread-photo .sticker{position:absolute;right:-6px;top:38%;background:var(--choco);color:var(--cream);border-radius:50%;width:118px;height:118px;display:grid;place-items:center;text-align:center;font:500 .8rem/1.25 var(--f-body);padding:14px;transform:rotate(10deg);box-shadow:var(--shadow);z-index:4}
+.spread-photo .sticker b{display:block;font-family:var(--f-script);font-weight:400;font-size:1.7rem;line-height:.9;color:var(--pink)}
+.spread-text{position:relative;background:var(--paper);border-radius:6px;box-shadow:var(--shadow);padding:44px 30px 36px;display:grid;gap:16px;align-content:start;min-width:0}
+.spread-text .title{text-align:left;font-size:clamp(3.6rem,11vw,5.6rem)}
+.kicker{font:500 1.35rem/1.35 var(--f-body);color:var(--ink)}
+.spread-text p{color:var(--ink-soft)}
+.facts{list-style:none;margin:10px 0 0;padding:0;display:grid;border-top:1.5px dashed var(--line)}
+.facts li{display:grid;grid-template-columns:36px 1fr;gap:10px;align-items:baseline;padding:11px 0;border-bottom:1.5px dashed var(--line)}
+.facts li::before{content:"✓";font-family:var(--f-body);font-weight:600;color:var(--cocoa);text-align:center}
+.about .d-mug{width:110px;right:-20px;bottom:-40px;transform:rotate(8deg)}
+@media (max-width:820px){.spread{grid-template-columns:1fr}.spread-photo{max-width:340px;margin:0 auto -30px;padding:18px 22px;z-index:2;width:100%}.spread-text{padding:56px 20px 30px}.spread-photo .a-heart{width:74px;right:0;top:44%;transform:rotate(14deg);z-index:4}
+.spread-photo .sticker{width:100px;height:100px;right:-4px}.about .d-mug{width:84px;right:-6px}}
+
+/* ---------- mission: text on the paper Leyla holds ---------- */
+.mission{padding-block:70px;background:var(--cream)}
+.hold{position:relative;max-width:520px;margin:0 auto}
+.hold img{width:100%;mix-blend-mode:multiply}
+.hold-text{position:absolute;left:27%;right:27%;top:33%;bottom:14%;display:grid;align-content:center;gap:14px;text-align:center}
+.hold-text .accent{font-size:clamp(2rem,7vw,2.8rem);color:var(--choco);display:block}
+.hold-text p{font-size:clamp(.9rem,3.1vw,1.1rem);line-height:1.45;color:var(--ink)}
+.hold-text u{text-decoration-color:var(--pink);text-decoration-thickness:3px;text-underline-offset:3px}
+.hold .pills{position:absolute;left:0;right:0;bottom:6%;display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.hold .pill{font-size:.78rem}
+.hold .p1{transform:rotate(-4deg)}.hold .p3{transform:rotate(4deg)}
+
+/* ---------- why ---------- */
+.why{padding-block:86px;color:var(--cream)}
+.why .title{color:var(--cream)}
+.why .subtitle{color:rgba(246,240,230,.7)}
+.why-grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:48px;align-items:center;margin-top:40px}
+.why-photo{position:relative;max-width:340px;margin:0 auto;width:100%}
+.why-photo img.main{border-radius:6px;aspect-ratio:3/4;object-fit:cover;width:100%;transform:rotate(2deg);box-shadow:0 30px 40px -20px rgba(0,0,0,.7)}
+.why-photo .t1{top:-16px;left:50%;margin-left:-65px;transform:rotate(-3deg)}
+.why-photo .d-air{width:120px;left:-30px;bottom:-34px;transform:rotate(-10deg);filter:drop-shadow(0 14px 14px rgba(0,0,0,.45))}
+@media (max-width:820px){.why-photo .d-air{width:96px;left:-14px}}
+.why-list{display:grid;gap:14px;min-width:0}
+.why-item{position:relative;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start;padding:22px 22px 22px 16px;border-radius:18px;background:rgba(246,240,230,.06);border:1px solid rgba(246,240,230,.22);transition:background .3s ease,transform .3s ease}
+.why-item:hover{background:rgba(246,240,230,.12);transform:translateX(4px)}
+.why-item .n{font-family:var(--f-script);font-size:3.4rem;line-height:.8;color:var(--pink);text-align:center}
+.why-item h3{font-family:var(--f-head);font-weight:500;font-size:1.7rem;margin-bottom:6px;letter-spacing:.01em}
+.why-item p{color:rgba(246,240,230,.8);font-size:1rem}
+@media (max-width:820px){.why-grid{grid-template-columns:1fr;gap:56px}.why-photo{max-width:270px}.why-item{grid-template-columns:50px 1fr;padding:18px 16px 18px 10px}.why-item .n{font-size:2.9rem}}
+
+/* ---------- services ---------- */
+.services{padding-block:86px}
+.board{position:relative;max-width:1000px;margin:36px auto 0;border-radius:22px;padding:22px;background:#4a2e22 url("wood.webp") center/cover;box-shadow:var(--shadow)}
+.grid-paper{position:relative;border-radius:12px;padding:42px 22px 30px;background-color:var(--paper);background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:24px}
+.svc{grid-column:span 2;position:relative;background:var(--paper);border:1.5px solid var(--choco);border-radius:18px;padding:24px 20px 20px;box-shadow:0 12px 22px -16px rgba(43,25,20,.7);transition:transform .35s ease;min-width:0}
+.svc:nth-child(1){transform:rotate(-1.5deg)}
+.svc:nth-child(2){transform:rotate(1.2deg);background:var(--pink-soft)}
+.svc:nth-child(3){transform:rotate(-.8deg);background:var(--choco);color:var(--cream)}
+.svc:nth-child(4){grid-column:2/span 2;transform:rotate(1deg);background:var(--pink-soft)}
+.svc:nth-child(5){transform:rotate(-1.2deg)}
+.svc:hover{transform:rotate(0) translateY(-4px)}
+.svc .num{position:absolute;top:-14px;left:16px;font:500 .82rem var(--f-body);background:var(--choco);color:var(--cream);border-radius:999px;padding:3px 11px}
+.svc:nth-child(3) .num{background:var(--pink);color:var(--choco)}
+.svc h3{font-family:var(--f-head);font-weight:500;font-size:1.65rem;line-height:1.05;margin-bottom:8px}
+.svc p{font-size:.97rem;color:var(--ink-soft)}
+.svc:nth-child(3) p{color:rgba(246,240,230,.82)}
+.tag-new{display:inline-block;margin-left:6px;font:500 .66rem var(--f-body);text-transform:uppercase;letter-spacing:.12em;background:var(--pink);color:var(--choco);padding:2px 8px;border-radius:999px;vertical-align:middle}
+.board .pin-img{position:absolute;width:30px;top:-10px;z-index:3;filter:drop-shadow(0 4px 3px rgba(0,0,0,.35))}
+.board .pin-img.t1{left:16px;top:-10px}.board .pin-img.t2{right:16px;left:auto;top:-10px}
+.board .tack{position:absolute;width:20px;height:20px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#fff,#bdb3ad 55%,#7d736d);box-shadow:0 3px 4px rgba(0,0,0,.35);z-index:2}
+.board .t1{top:12px;left:12px}.board .t2{top:12px;right:12px}
+.board .cta{grid-column:1/-1;display:flex;justify-content:center;margin-top:8px}
+.services .d-pen{-webkit-mask-image:linear-gradient(to right,#000 70%,transparent 98%);mask-image:linear-gradient(to right,#000 70%,transparent 98%);width:170px;right:-30px;bottom:-60px;transform:rotate(-8deg)}
+.services .d-key{width:80px;left:-22px;top:-50px;transform:rotate(-20deg)}
+@media (max-width:860px){.grid-paper{grid-template-columns:1fr;padding:36px 16px 24px;gap:28px}.svc,.svc:nth-child(4){grid-column:auto}.board{padding:14px}.services .d-pen{width:120px;right:-14px;bottom:-46px}.services .d-key{width:64px;left:-6px;top:-44px}}
+
+/* ---------- format ---------- */
+.format{padding-block:86px}
+.clipboard{position:relative;max-width:900px;margin:56px auto 0;background:var(--pink);border-radius:26px;padding:62px 22px 26px;box-shadow:var(--shadow)}
+.clipboard .d-clipb{width:150px;top:-50px;left:50%;transform:translateX(-50%)}
+.clip-paper{background:var(--paper);border-radius:12px;padding:30px 24px;display:grid;gap:22px}
+.forms{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:18px;align-items:stretch}
+.form{border:1.5px solid var(--choco);border-radius:18px;padding:22px 20px;display:grid;gap:12px;align-content:start;min-width:0}
+.form.full{background:var(--choco);color:var(--cream)}
+.form .k{font:500 .74rem var(--f-body);letter-spacing:.16em;text-transform:uppercase;opacity:.7}
+.form h3{font-family:var(--f-head);font-weight:500;font-size:1.95rem;line-height:1}
+.form ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:1rem}
+.form li{display:grid;grid-template-columns:14px 1fr;gap:8px}
+.form li::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;margin-top:10px;opacity:.7}
+.or{display:grid;place-items:center;font-family:var(--f-script);font-size:2.6rem;color:var(--cocoa)}
+.format-note{text-align:center;font-size:1.04rem;color:var(--ink-soft);max-width:36em;margin:0 auto}
+.format-note b{color:var(--ink);font-weight:500}
+@media (max-width:760px){.forms{grid-template-columns:1fr}.or{font-size:2.2rem;line-height:1}.clip-paper{padding:24px 16px}.clipboard{padding:56px 12px 14px}}
+
+/* ---------- steps: notes on a thread ---------- */
+.steps{padding-block:86px}
+.thread{position:relative;max-width:760px;margin:40px auto 0;padding-inline:16px;display:grid;gap:8px}
+.thread::before{content:"";position:absolute;left:50%;top:40px;bottom:40px;border-left:2px dashed var(--cocoa);opacity:.55}
+.step{position:relative;width:min(330px,82%);aspect-ratio:6/5;background:url("note.webp") center/100% 100% no-repeat;padding:24% 12% 10% 14%;display:grid;align-content:start;gap:6px;filter:drop-shadow(0 14px 16px rgba(43,25,20,.25));transition:transform .35s ease}
+.step:nth-child(odd){justify-self:start;transform:rotate(-3deg)}
+.step:nth-child(even){justify-self:end;transform:rotate(3deg);margin-top:-60px}
+.step:nth-child(n+2):nth-child(odd){margin-top:-60px}
+.step:hover{transform:rotate(0) scale(1.02)}
+.step .n{position:absolute;right:11%;top:7%;font-family:var(--f-script);font-size:3.6rem;line-height:.8;color:var(--cocoa);opacity:.9}
+.step h3{font-family:var(--f-script);font-weight:400;font-size:clamp(2.1rem,8vw,2.6rem);line-height:.95;padding-right:16%;color:var(--choco)}
+.step p{font-size:.98rem;line-height:1.45;color:var(--ink-soft)}
+.step .pin{position:absolute;left:50%;top:6%;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f6dbe1,#c98d9b 60%,#8b5260);box-shadow:0 3px 3px rgba(0,0,0,.3)}
+.terms{max-width:640px;margin:40px auto 0;background:var(--paper);border:1.5px solid var(--choco);border-radius:22px;padding:26px 24px;position:relative}
+.terms .t-clip{width:96px;top:-46px;left:50%;margin-left:-48px;transform:rotate(-3deg);filter:drop-shadow(0 6px 8px rgba(43,25,20,.3))}
+.terms h3{margin-top:14px}
+.terms h3{text-align:center;font:500 1.05rem/1.45 var(--f-body);margin-bottom:16px}
+.terms ol{list-style:none;margin:0;padding:0;border-top:1.5px dashed var(--line)}
+.terms li{display:grid;grid-template-columns:44px 1fr;gap:6px;padding:12px 0;border-bottom:1.5px dashed var(--line);font-size:1rem}
+.terms li span{font-family:var(--f-script);font-size:1.6rem;line-height:1;color:var(--cocoa)}
+.steps .center{display:flex;justify-content:center;margin-top:26px}
+@media (max-width:600px){.thread::before{left:50%}.step{width:86%}.step:nth-child(even),.step:nth-child(n+2):nth-child(odd){margin-top:-34px}}
+
+/* ---------- projects ---------- */
+.projects{padding-block:86px}
+.proj{max-width:980px;margin:38px auto 0;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:24px;align-items:stretch}
+.case{position:relative;background:var(--paper);border-radius:22px;padding:30px 26px;display:grid;gap:18px;align-content:start;min-width:0;box-shadow:var(--shadow);overflow:hidden}
+.case::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:var(--pink-soft);z-index:0}
+.case > *{position:relative;z-index:1}
+.case .k{font:500 .76rem var(--f-body);letter-spacing:.18em;text-transform:uppercase;color:var(--cocoa)}
+.case h3{font-family:var(--f-head);font-weight:500;font-size:2.3rem;line-height:1}
+.stat{display:grid;grid-template-columns:auto 1fr;gap:4px 16px;align-items:end;padding:16px 0;border-block:1.5px dashed var(--line)}
+.stat .big{font-family:var(--f-head);font-weight:300;font-size:clamp(6rem,22vw,8rem);line-height:.78;color:var(--choco)}
+.stat .big small{font-family:var(--f-script);font-weight:400;font-size:.42em;color:var(--cocoa);margin-left:4px}
+.stat p{color:var(--ink-soft);font-size:1.02rem;padding-bottom:6px}
+.fact{display:flex;gap:12px;align-items:center;font-size:1.02rem}
+.fact::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:var(--pink);border:1.5px solid var(--choco)}
+.channel{position:relative;background:var(--choco);color:var(--cream);border-radius:22px;padding:30px 26px 120px;display:grid;gap:14px;align-content:start;overflow:hidden;min-width:0;box-shadow:var(--shadow)}
+.channel .accent{color:var(--pink);font-size:2.6rem;line-height:.9}
+.channel h3{font-family:var(--f-head);font-weight:500;font-size:2.3rem;line-height:1}
+.channel p{color:rgba(246,240,230,.8)}
+.channel .btn{justify-self:start;margin-top:6px}
+.channel .d-star{width:118px;right:16px;bottom:14px;transform:rotate(-14deg);filter:drop-shadow(0 10px 12px rgba(0,0,0,.5))}
+@media (max-width:820px){.proj{grid-template-columns:1fr}}
+
+/* ---------- course ---------- */
+.course{padding-block:86px}
+.course-grid{max-width:1000px;margin:38px auto 0;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:26px;align-items:start}
+.course-left{display:grid;gap:26px;min-width:0}
+.for{position:relative;background:var(--pink-soft);border-radius:4px;padding:38px 24px 26px;transform:rotate(-1.2deg);box-shadow:var(--shadow);display:grid;gap:12px}
+.for .claw-top{width:116px;top:-44px;left:22px;transform:rotate(-6deg);filter:drop-shadow(0 8px 8px rgba(43,25,20,.3))}
+.for .hd{font-size:1.9rem}
+.for p{color:var(--ink)}
+.res{position:relative;background:var(--choco);color:var(--cream);border-radius:22px;padding:26px 24px;display:grid;gap:10px;box-shadow:var(--shadow)}
+.res .label{font:500 .74rem var(--f-body);letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+.res .sum{font-family:var(--f-head);font-weight:300;font-size:3.4rem;line-height:.9;color:var(--pink)}
+.res p{color:rgba(246,240,230,.82)}
+.notebook{position:relative;background:var(--paper);border-radius:6px 22px 22px 6px;box-shadow:var(--shadow);padding:34px 22px 30px 64px;background-image:linear-gradient(90deg,transparent 46px,var(--pink) 46px 48px,transparent 48px),repeating-linear-gradient(180deg,transparent 0 37px,rgba(43,25,20,.09) 37px 38px);min-width:0}
+.notebook .hd{font-size:1.9rem;margin-bottom:10px}
+.weeks{list-style:none;margin:0;padding:0;display:grid;gap:18px}
+.weeks li{position:relative}
+.weeks .w{position:absolute;left:-52px;top:-6px;font-family:var(--f-script);font-size:2.3rem;line-height:1;color:var(--cocoa)}
+.weeks b{display:block;font-weight:500;font-size:1.1rem}
+.weeks span{color:var(--ink-soft);font-size:.98rem}
+.course .center{display:flex;justify-content:center;margin-top:30px}
+.course .d-flower{width:80px;right:-16px;top:-30px;transform:rotate(12deg)}
+@media (max-width:820px){.course-grid{grid-template-columns:1fr}.notebook{padding-left:58px}.course .d-flower{right:-6px;width:66px}}
+
+/* ---------- contacts: a letter ---------- */
+.contacts{padding-block:90px 0;color:var(--cream)}
+.letter-wrap{position:relative;max-width:560px;margin:0 auto}
+.letter{position:relative;background:var(--paper);color:var(--ink);border-radius:6px;padding:46px 26px 30px;box-shadow:0 34px 50px -24px rgba(0,0,0,.7);transform:rotate(-1deg);display:grid;gap:16px;text-align:center}
+.letter .l-tape{width:150px;top:-16px;left:50%;margin-left:-75px;transform:rotate(-3deg);filter:drop-shadow(0 2px 3px rgba(0,0,0,.3))}
+.letter .title{font-size:clamp(3.4rem,13vw,5rem);color:var(--choco)}
+.letter > p{color:var(--ink-soft);font-size:1.05rem}
+.socials{display:flex;justify-content:center;gap:12px;margin-top:4px}
+.soc{width:54px;height:54px;border-radius:50%;background:var(--choco);display:grid;place-items:center;transition:transform .25s ease}
+.soc:hover{transform:translateY(-3px) rotate(-6deg)}
+.soc svg{width:24px;height:24px;fill:var(--cream)}
+.chans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chan{display:grid;gap:2px;padding:14px 14px;border:1.5px dashed var(--choco);border-radius:16px;text-decoration:none;text-align:left;background:var(--pink-soft);transition:transform .25s ease}
+.chan:nth-child(2){background:var(--cream)}
+.chan:hover{transform:translateY(-3px)}
+.chan small{font:500 .7rem var(--f-body);letter-spacing:.16em;text-transform:uppercase;color:var(--cocoa)}
+.chan b{font-weight:500;font-size:1.02rem}
+.letter-wrap .d-phone{width:150px;right:-70px;bottom:-40px;transform:rotate(10deg);-webkit-mask-image:linear-gradient(to bottom,#000 70%,transparent 96%);mask-image:linear-gradient(to bottom,#000 70%,transparent 96%);filter:drop-shadow(0 14px 14px rgba(0,0,0,.45))}
+@media (max-width:640px){.letter-wrap .d-phone{width:96px;right:-6px;bottom:-70px}.chans{grid-template-columns:1fr}}
+footer{margin-top:110px;border-top:1px solid rgba(246,240,230,.18);padding-block:24px 36px;font-size:.84rem;color:rgba(246,240,230,.6)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px 24px}
+footer .made{font-family:var(--f-script);font-size:1.7rem;color:var(--cream);line-height:1.1;text-decoration:none;border-bottom:1px solid rgba(246,240,230,.35)}
+footer .made:hover{color:var(--pink)}
+
+/* ---------- motion ---------- */
+@keyframes rise{from{transform:translateY(22px)}to{transform:none}}
+@keyframes floaty{0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes popin{from{scale:.6}to{scale:1}}
+.cover-text > *{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.cover-text > *:nth-child(2){animation-delay:.08s}.cover-text > *:nth-child(3){animation-delay:.16s}.cover-text > *:nth-child(4){animation-delay:.24s}
+.frame-tags .pill{animation:popin .6s cubic-bezier(.3,1.4,.5,1) both}
+.frame-tags .pill:nth-child(1){animation-delay:.5s}.frame-tags .pill:nth-child(2){animation-delay:.68s}
+.float{animation:floaty 6s ease-in-out infinite}
+.float.slow{animation-duration:8s;animation-delay:-2s}
+.rv{transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.pre{transform:translateY(28px)}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv.pre{transform:none}}
+</style>
+</head><body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="#top">umm.soffia</a>
+    <div class="menu">
+      <nav aria-label="Разделы">
+        <a href="#about">Обо мне</a>
+        <a href="#services">Услуги</a>
+        <a href="#steps">Этапы</a>
+        <a href="#projects">Проекты</a>
+        <a href="#course">Обучение</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <a class="btn btn-choco" href="https://t.me/ummsoffia" target="_blank" rel="noopener">Написать</a>
+      <details class="mnav">
+        <summary aria-label="Меню"><span></span></summary>
+        <div class="mnav-list">
+          <a class="mi" href="#about"><small>01</small><span>Обо мне</span></a>
+          <a class="mi" href="#why"><small>02</small><span>Почему я</span></a>
+          <a class="mi" href="#services"><small>03</small><span>Услуги</span></a>
+          <a class="mi" href="#format"><small>04</small><span>Формат работы</span></a>
+          <a class="mi" href="#steps"><small>05</small><span>Этапы и условия</span></a>
+          <a class="mi" href="#projects"><small>06</small><span>Проекты</span></a>
+          <a class="mi" href="#course"><small>07</small><span>Обучение</span></a>
+          <a class="mi" href="#contacts"><small>08</small><span>Контакты</span></a>
+          <div class="mnav-foot">
+            <a class="btn btn-cream" href="https://t.me/ummsoffia" target="_blank" rel="noopener">Написать в Telegram</a>
+            <p>дизайн · визуал · ИИ</p>
+          </div>
+        </div>
+      </details>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ОБЛОЖКА -->
+<section class="cover stripes">
+  <div class="wrap">
+    <div class="book">
+      <div class="spiral" aria-hidden="true"></div>
+      <div class="cover-grid">
+        <div class="frame-wrap">
+          <div class="frame">
+            <video src="leyla.mp4" poster="leyla-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Лейла за рабочим столом"></video>
+          </div>
+          <img class="deco d-ran float slow" src="ranunculus.webp" alt="">
+          <img class="deco d-heart float" src="heart.webp" alt="">
+          <div class="frame-tags">
+            <span class="pill">дизайн · сайты · нейросети</span>
+            <span class="pill dark">обучение для женщин</span>
+          </div>
+        </div>
+        <div class="cover-text">
+          <h1 class="cover-name">Фатима</h1>
+          <p class="role">[ <b>дизайнер и AI-креатор</b> ]</p>
+          <p class="lead">Помогаю экспертам и брендам выглядеть так, чтобы им доверяли: оформляю блоги, делаю логотипы, сайты и картинки с помощью нейросетей. А ещё учу этому других женщин.</p>
+          <div class="btns">
+            <a class="btn btn-pink" href="https://t.me/ummsoffia" target="_blank" rel="noopener">Обсудить проект</a>
+            <a class="btn btn-choco" href="#course">Обучение</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ОБО МНЕ -->
+<section class="about stripes" id="about">
+  <div class="wrap">
+    <div class="spread">
+      <div class="spread-photo rv">
+        <div class="pic">
+          <img class="tape-img t1" src="tape-dots.webp" alt="">
+          <img class="main" src="leyla-selfie.webp" alt="Лейла, героиня блога, с телефоном и планшетом">
+        </div>
+        <img class="deco a-flower float" src="flower-claw.webp" alt="">
+      </div>
+      <div class="spread-text rv">
+        <h2 class="title">Обо мне</h2>
+        <p class="kicker">Меня зовут Фатима. Я дизайнер и <span class="accent">наставник</span></p>
+        <p>Работаю с экспертами, брендами и онлайн-школами. Чаще всего ко мне приходят, когда дело уже есть, а блог или страница пока не показывают, насколько оно хорошее.</p>
+        <p>Это знакомо мне не понаслышке: я сама веду блог и знаю, сколько сил уходит на то, чтобы он выглядел цельно и приводил людей.</p>
+        <ul class="facts">
+          <li>Веду свой блог без лица и голоса</li>
+          <li>Учу мусульманок вести такой же</li>
+          <li>Клиенты возвращаются ко мне снова</li>
+        </ul>
+        <img class="deco d-mug float slow" src="mug.webp" alt="">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ПОДХОД -->
+<section class="mission">
+  <div class="hold rv">
+    <img src="hands-paper.webp" alt="">
+    <div class="hold-text">
+      <span class="accent">Мой подход</span>
+      <p>Сначала разбираюсь, <u>чем вы занимаетесь</u> и кому это нужно. И только потом решаю, <u>как это показать</u></p>
+    </div>
+    <div class="pills"><span class="pill p1">смысл</span><span class="pill dark">детали</span><span class="pill p3">система</span></div>
+  </div>
+</section>
+
+<!-- ПОЧЕМУ Я -->
+<section class="why stripes-dark" id="why">
+  <div class="wrap">
+    <h2 class="title rv">Почему я</h2>
+    <p class="subtitle rv">что вы получаете</p>
+    <div class="why-grid">
+      <div class="why-photo rv">
+        <img class="tape-img t1" src="tape-dots.webp" alt="">
+        <img class="main" src="leyla-desk.webp" alt="Лейла за ноутбуком с чашкой какао">
+        <img class="deco d-air float slow" src="airpods.webp" alt="">
+      </div>
+      <div class="why-list">
+        <div class="why-item rv"><span class="n">1</span><div><h3>Решение под вас</h3><p>Не беру готовые шаблоны. Смотрю на вашу аудиторию и характер дела и придумываю с нуля.</p></div></div>
+        <div class="why-item rv"><span class="n">2</span><div><h3>Внимание к мелочам</h3><p>Цвета, шрифты, фото, отступы — подбираю так, чтобы всё сочеталось и смотрелось аккуратно.</p></div></div>
+        <div class="why-item rv"><span class="n">3</span><div><h3>Всё как одно целое</h3><p>Профиль, посты и сайт выглядят как части одного бренда, а не как набор отдельных картинок.</p></div></div>
+        <div class="why-item rv"><span class="n">4</span><div><h3>Польза, а не только красота</h3><p>Дизайн должен помогать: объяснять, чем вы полезны, и приводить к вам людей.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- УСЛУГИ -->
+<section class="services stripes" id="services">
+  <div class="wrap">
+    <h2 class="title rv">Мои услуги</h2>
+    <div class="board rv">
+      <img class="pin-img t1" src="pin.webp" alt=""><img class="pin-img t2" src="pin.webp" alt="">
+      <div class="grid-paper">
+        <article class="svc"><span class="num">01</span><h3>Упаковка блогов</h3><p>Шапка профиля, хайлайты, обложки и шаблоны постов. Блог становится понятным с первого взгляда.</p></article>
+        <article class="svc"><span class="num">02</span><h3>Брендинг и графический дизайн</h3><p>Логотип, фирменные цвета и шрифты, а ещё всё для работы: презентации, афиши, гайды, реклама.</p></article>
+        <article class="svc"><span class="num">03</span><h3>Сайты <span class="tag-new">новое</span></h3><p>Одностраничные сайты для экспертов, школ и мероприятий: от структуры до готовой страницы, удобной с телефона.</p></article>
+        <article class="svc"><span class="num">04</span><h3>Картинки с помощью ИИ</h3><p>Фото товаров, персонажи, обложки и рекламные изображения без дорогих съёмок.</p></article>
+        <article class="svc"><span class="num">05</span><h3>Визуальная стратегия</h3><p>Если непонятно, каким должен быть ваш блог. Вместе находим направление и собираем простые правила оформления.</p></article>
+        <div class="cta"><a class="btn btn-pink" href="https://t.me/ummsoffia" target="_blank" rel="noopener">Узнать стоимость</a></div>
+      </div>
+      <img class="deco d-pen" src="pen-hand.webp" alt="">
+    </div>
+  </div>
+</section>
+
+<!-- ФОРМАТ -->
+<section class="format" id="format">
+  <div class="wrap">
+    <h2 class="title rv">Формат работы</h2>
+    <p class="subtitle rv">частями или всё сразу</p>
+    <div class="clipboard rv">
+      <img class="deco d-clipb" src="clip-brown.webp" alt="">
+      <div class="clip-paper">
+        <div class="forms">
+          <div class="form">
+            <span class="k">вариант 1</span>
+            <h3>Одна задача</h3>
+            <ul>
+              <li>Логотип или обложки</li>
+              <li>Карусель или шаблоны постов</li>
+              <li>Картинки от нейросети</li>
+            </ul>
+          </div>
+          <div class="or" aria-hidden="true">или</div>
+          <div class="form full">
+            <span class="k">вариант 2</span>
+            <h3>Под ключ</h3>
+            <ul>
+              <li>Упаковка блога целиком</li>
+              <li>Фирменный стиль</li>
+              <li>Сайт в том же ключе</li>
+            </ul>
+          </div>
+        </div>
+        <p class="format-note"><b>Цена и сроки зависят от задачи</b> — обсудим в личке.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ЭТАПЫ -->
+<section class="steps stripes" id="steps">
+  <h2 class="title rv">Этапы работы</h2>
+  <p class="subtitle rv">как всё проходит</p>
+  <div class="thread">
+    <article class="step rv"><span class="n">1</span><h3>Знакомимся</h3><p>Рассказываете о задаче, а я уточняю детали, сроки и стоимость.</p></article>
+    <article class="step rv"><span class="n">2</span><h3>Ищу решение</h3><p>Собираю референсы и предлагаю направление.</p></article>
+    <article class="step rv"><span class="n">3</span><h3>Делаю дизайн</h3><p>Показываю основные варианты, вы выбираете.</p></article>
+    <article class="step rv"><span class="n">4</span><h3>Вношу правки</h3><p>Дорабатываю детали до финального вида.</p></article>
+    <article class="step rv"><span class="n">5</span><h3>Передаю файлы</h3><p>Отправляю готовую работу в удобном для вас формате.</p></article>
+  </div>
+  <div class="wrap">
+    <div class="terms rv">
+      <img class="deco t-clip" src="clip-dots.webp" alt="">
+      <h3>Условия</h3>
+      <ol>
+        <li><span>1</span>Предоплата 50%, остаток — перед передачей файлов.</li>
+        <li><span>2</span>Сроки и количество правок оговариваем заранее.</li>
+        <li><span>3</span>Работу показываю в портфолио только с вашего согласия.</li>
+        <li><span>4</span>Все детали фиксируем до старта.</li>
+      </ol>
+    </div>
+    <div class="center"><a class="btn btn-choco" href="https://t.me/ummsoffia" target="_blank" rel="noopener">Обсудить проект</a></div>
+  </div>
+</section>
+
+<!-- ПРОЕКТЫ -->
+<section class="projects" id="projects">
+  <div class="wrap">
+    <h2 class="title rv">Проекты</h2>
+    <div class="proj">
+      <article class="case rv">
+        <span class="k">школа арабского языка</span>
+        <h3>Al-Wasiya</h3>
+        <div class="stat">
+          <span class="big">7<small>раз</small></span>
+          <p>выросли охваты школы после нового оформления</p>
+        </div>
+        <p class="fact">Набор на курсы закрывался в день открытия</p>
+      </article>
+      <article class="channel rv">
+        <span class="accent">больше работ</span>
+        <h3>в моём канале с кейсами</h3>
+        <p>Показываю, какой была задача, что я сделала и что из этого получилось.</p>
+        <a class="btn btn-cream" href="https://t.me/keys_ummsoffia" target="_blank" rel="noopener">Смотреть кейсы</a>
+        <img class="deco d-star float slow" src="star.webp" alt="">
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ОБУЧЕНИЕ -->
+<section class="course stripes" id="course">
+  <div class="wrap">
+    <h2 class="title rv">Обучение</h2>
+    <p class="subtitle rv">дизайн, нейросети и продвижение · 5 недель</p>
+    <div class="course-grid">
+      <div class="course-left">
+        <div class="for rv">
+          <img class="deco claw-top" src="claw.webp" alt="">
+          <h3 class="hd">Для кого</h3>
+          <p>Для женщин, у которых есть блог или своё дело, но непонятно, как его оформить и продвигать.</p>
+          <p>И для тех, кто хочет освоить дизайн как навык и брать первые заказы.</p>
+        </div>
+        <div class="res rv">
+          <span class="label">результаты учениц</span>
+          <span class="sum">63 000 ₽</span>
+          <p>заработала ученица на запуске своего курса. Все ученицы приходили без своего стиля и палитры и находили их за время обучения.</p>
+        </div>
+      </div>
+      <div class="notebook rv">
+        <img class="deco d-flower float" src="flower.webp" alt="">
+        <h3 class="hd">Чему научитесь</h3>
+        <ol class="weeks">
+          <li><span class="w">1</span><b>Понимать свою аудиторию</b><span>Кто вы, для кого работаете и чем отличаетесь от других</span></li>
+          <li><span class="w">2</span><b>Оформлять блог</b><span>Найдёте свою палитру, шрифты и персонажа, научитесь делать дизайн под телефон</span></li>
+          <li><span class="w">3</span><b>Делать контент</b><span>Посты, сторис, картинки в нейросетях и монтаж видео</span></li>
+          <li><span class="w">4</span><b>Продвигаться</b><span>Pinterest и несколько площадок, которые работают вместе</span></li>
+          <li><span class="w">5</span><b>Зарабатывать на навыках</b><span>Где искать первых клиентов и как говорить о своих услугах</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="center"><a class="btn btn-choco" href="https://t.me/ummsoffia" target="_blank" rel="noopener">Узнать о ближайшем потоке</a></div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="contacts stripes-dark" id="contacts">
+  <div class="wrap">
+    <div class="letter-wrap rv">
+      <div class="letter">
+        <img class="deco l-tape" src="tape-dots.webp" alt="">
+        <h2 class="title">Напишите мне</h2>
+        <p>Расскажите, что нужно сделать, — отвечу и подскажу, с чего начать.</p>
+        <a class="btn btn-choco" href="https://t.me/ummsoffia" target="_blank" rel="noopener">Написать в Telegram</a>
+        <div class="chans">
+          <a class="chan" href="https://t.me/keys_ummsoffia" target="_blank" rel="noopener"><small>Telegram ↗</small><b>Канал с кейсами</b></a>
+          <a class="chan" href="https://t.me/umm_soffia" target="_blank" rel="noopener"><small>Telegram ↗</small><b>Основной канал</b></a>
+        </div>
+        <div class="socials">
+          <a class="soc" href="https://t.me/ummsoffia" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24"><path d="M21.4 3.6 2.9 10.7c-1.3.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.6c.2.6.4.8.9.8.4 0 .6-.2.9-.4l2.3-2.2 4.7 3.5c.9.5 1.5.2 1.7-.8l3.1-14.6c.3-1.3-.5-1.9-1.4-1.5ZM9.6 13.9l8.6-5.4c.4-.3.8-.1.5.2l-7.3 6.6-.3 3.2-1.5-4.6Z"/></svg></a>
+          <a class="soc" href="https://www.instagram.com/umm.soffia" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 7.2A4.8 4.8 0 1 0 12 16.8 4.8 4.8 0 0 0 12 7.2Zm0 7.9a3.1 3.1 0 1 1 0-6.2 3.1 3.1 0 0 1 0 6.2Zm6.1-8.1a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM21.9 8c-.1-1.6-.4-3-1.6-4.2C19.1 2.6 17.6 2.3 16 2.2 14.4 2.1 9.6 2.1 8 2.2 6.4 2.3 5 2.6 3.7 3.8 2.6 5 2.2 6.4 2.1 8 2 9.6 2 14.4 2.1 16c.1 1.6.4 3 1.6 4.2 1.2 1.2 2.6 1.5 4.2 1.6 1.6.1 6.4.1 8 0 1.6-.1 3-.4 4.2-1.6 1.2-1.2 1.5-2.6 1.6-4.2.1-1.6.1-6.4 0-8Zm-2 9.7c-.3.9-1 1.5-1.8 1.8-1.3.5-4.3.4-5.7.4s-4.4.1-5.7-.4c-.9-.3-1.5-1-1.8-1.8-.5-1.3-.4-4.3-.4-5.7s-.1-4.4.4-5.7c.3-.9 1-1.5 1.8-1.8C8 4 11 4.1 12.4 4.1s4.4-.1 5.7.4c.9.3 1.5 1 1.8 1.8.5 1.3.4 4.3.4 5.7s.1 4.4-.4 5.7Z"/></svg></a>
+          <a class="soc" href="https://pin.it/4AqPM4pga" target="_blank" rel="noopener" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12.3 2C6.8 2 4 5.9 4 9.2c0 2 .8 3.7 2.4 4.4.3.1.5 0 .6-.3l.2-.9c.1-.3 0-.4-.2-.7-.5-.6-.8-1.3-.8-2.4 0-3.1 2.3-5.8 6-5.8 3.3 0 5.1 2 5.1 4.7 0 3.5-1.6 6.5-3.9 6.5-1.3 0-2.2-1-1.9-2.3.4-1.5 1.1-3.2 1.1-4.3 0-1-.5-1.8-1.6-1.8-1.3 0-2.3 1.3-2.3 3.1 0 1.1.4 1.9.4 1.9l-1.5 6.4c-.4 1.9-.1 4.2 0 4.4 0 .1.2.2.3.1.1-.2 1.6-2 2.1-3.8l.8-3.2c.4.8 1.6 1.4 2.9 1.4 3.8 0 6.4-3.5 6.4-8.1C20.1 5.4 17 2 12.3 2Z"/></svg></a>
+        </div>
+      </div>
+      <img class="deco d-phone float slow" src="phone.webp" alt="">
+    </div>
+  </div>
+  <footer>
+    <div class="wrap">
+      <a class="made" href="https://t.me/ummsoffia" target="_blank" rel="noopener">нравится сайт? можете заказать у меня</a>
+      <span>© <span id="yr">2026</span> umm.soffia · *Instagram принадлежит компании Meta, деятельность которой признана экстремистской и запрещена в РФ</span>
+    </div>
+  </footer>
+</section>
+</main>
+
+<script>
+(function(){
+  var y=document.getElementById('yr'); if(y) y.textContent=new Date().getFullYear();
+  var md=document.querySelector('details.mnav'); if(md){md.addEventListener('toggle',function(){document.documentElement.style.overflow=md.open?'hidden':'';}); md.querySelectorAll('.mnav-list a').forEach(function(a){a.addEventListener('click',function(){md.open=false;});});}
+  var v=document.querySelector('.frame video'); if(v){v.muted=true; var p=v.play(); if(p&&p.catch) p.catch(function(){});}
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)) return;
+  var items=[].slice.call(document.querySelectorAll('.rv')), vh=innerHeight;
+  items.forEach(function(el){ if(el.getBoundingClientRect().top>vh) el.classList.add('pre'); });
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.remove('pre');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px'});
+  items.forEach(function(el){io.observe(el);});
+})();
+</script>
+</body></html>
